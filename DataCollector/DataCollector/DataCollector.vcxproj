@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|Win32">
@@ -20,13 +20,13 @@
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>
-    <ProjectGuid>{218DA7D0-8312-48A7-8B71-19F244620182}</ProjectGuid>
-    <RootNamespace>Hardware</RootNamespace>
+    <ProjectGuid>{16382E1A-1A17-4C11-956F-3AA91F7C305D}</ProjectGuid>
+    <RootNamespace>DataCollector</RootNamespace>
     <WindowsTargetPlatformVersion>10.0.17134.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
-    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <PlatformToolset>v141</PlatformToolset>
     <CharacterSet>MultiByte</CharacterSet>
@@ -69,17 +69,13 @@
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <TargetExt>.dll</TargetExt>
-  </PropertyGroup>
+  <PropertyGroup />
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>D:\Projects\univer\Hardware\Hardware\json;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
     </ClCompile>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -88,7 +84,6 @@
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>D:\Projects\univer\systemScanner\systemscanner-rat\Hardware\json;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -120,12 +115,37 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Source.cpp" />
-    <ClCompile Include="WMIParser.cpp" />
+    <ClInclude Include="Models\IModel.h" />
+    <ClInclude Include="Models\Win32_BaseboardModel.h" />
+    <ClInclude Include="Models\Win32_BIOSModel.h" />
+    <ClInclude Include="Models\Win32_ComputerSystemModel.h" />
+    <ClInclude Include="Models\Win32_DesktopMonitorModel.h" />
+    <ClInclude Include="Models\Win32_DiskDriveModel.h" />
+    <ClInclude Include="Models\Win32_KeyboardModel.h" />
+    <ClInclude Include="Models\Win32_NetworkClientModel.h" />
+    <ClInclude Include="Models\Win32_OperatingSystemModel.h" />
+    <ClInclude Include="Models\Win32_PointingDeviceModel.h" />
+    <ClInclude Include="Models\Win32_ProcessorModel.h" />
+    <ClInclude Include="Models\Win32_RegistryModel.h" />
+    <ClInclude Include="Models\Win32_SoundDeviceModel.h" />
+    <ClInclude Include="Models\Win32_USBControllerModelh.h" />
+    <ClInclude Include="Models\Win32_UserAccountModel.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="SystemRat.h" />
-    <ClInclude Include="WMIParser.h" />
+    <ClCompile Include="Models\src\Win32_BaseboardModel.cpp" />
+    <ClCompile Include="Models\src\Win32_BIOSModel.cpp" />
+    <ClCompile Include="Models\src\Win32_ComputerSystemModel.cpp" />
+    <ClCompile Include="Models\src\Win32_DesktopMonitorModel.cpp" />
+    <ClCompile Include="Models\src\Win32_DiskDriveModel.cpp" />
+    <ClCompile Include="Models\src\Win32_KeyboardModel.cpp" />
+    <ClCompile Include="Models\src\Win32_NetworkClientModel.cpp" />
+    <ClCompile Include="Models\src\Win32_OperatingSystem.cpp" />
+    <ClCompile Include="Models\src\Win32_PointingDeviceModel.cpp" />
+    <ClCompile Include="Models\src\Win32_ProcessorModel.cpp" />
+    <ClCompile Include="Models\src\Win32_RegistryModel.cpp" />
+    <ClCompile Include="Models\src\Win32_SoundDeviceModel.cpp" />
+    <ClCompile Include="Models\src\Win32_USBControllerModel.cpp" />
+    <ClCompile Include="Models\src\Win32_UserAccountModel.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

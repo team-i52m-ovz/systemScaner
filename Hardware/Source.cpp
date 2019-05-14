@@ -349,3 +349,9 @@ int generateReport()
 	wmiParser.generateFile("report.json");
 	return 0;
 }
+
+int main()
+{
+	generateReport();
+	return 1;
+}
