@@ -22,7 +22,7 @@
     <VCProjectVersion>15.0</VCProjectVersion>
     <ProjectGuid>{16382E1A-1A17-4C11-956F-3AA91F7C305D}</ProjectGuid>
     <RootNamespace>DataCollector</RootNamespace>
-    <WindowsTargetPlatformVersion>10.0.17134.0</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformVersion>10.0.15063.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -84,6 +84,7 @@
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>../../Hardware/json;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -115,6 +116,11 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="Common\Common.h" />
+    <ClInclude Include="DataManager\DataManager.h" />
+    <ClInclude Include="JSONModelsConverter\JSONModelsConverter.h" />
+    <ClInclude Include="Main\Application.h" />
+    <ClInclude Include="Main\Reactor.h" />
     <ClInclude Include="Models\IModel.h" />
     <ClInclude Include="Models\Win32_BaseboardModel.h" />
     <ClInclude Include="Models\Win32_BIOSModel.h" />
@@ -130,8 +136,15 @@
     <ClInclude Include="Models\Win32_SoundDeviceModel.h" />
     <ClInclude Include="Models\Win32_USBControllerModelh.h" />
     <ClInclude Include="Models\Win32_UserAccountModel.h" />
+    <ClInclude Include="Network\HttpServer.h" />
+    <ClInclude Include="Network\RequestParser.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="DataManager\src\DataManager.cpp" />
+    <ClCompile Include="JSONModelsConverter\src\JSONModelsConverter.cpp" />
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="Main\src\Application.cpp" />
+    <ClCompile Include="Main\src\Reactor.cpp" />
     <ClCompile Include="Models\src\Win32_BaseboardModel.cpp" />
     <ClCompile Include="Models\src\Win32_BIOSModel.cpp" />
     <ClCompile Include="Models\src\Win32_ComputerSystemModel.cpp" />
@@ -146,6 +159,8 @@
     <ClCompile Include="Models\src\Win32_SoundDeviceModel.cpp" />
     <ClCompile Include="Models\src\Win32_USBControllerModel.cpp" />
     <ClCompile Include="Models\src\Win32_UserAccountModel.cpp" />
+    <ClCompile Include="Network\src\HttpServer.cpp" />
+    <ClCompile Include="Network\src\RequestParser.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
