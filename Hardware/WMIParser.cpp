@@ -188,10 +188,12 @@ int WMIParser::queryData()
 						toFill.emplace(item, ws2s(outData));
 					}
 					//m_jsonParser[it.first][iter.first].push_back(json{toFill});
+					json j{};
 					for (auto iterat : toFill)
 					{
-						m_jsonParser[it.first][iter.first][iterat.first] = iterat.second;
+						j[iterat.first] = iterat.second;
 					}
+					m_jsonParser[it.first][iter.first].push_back(j);
 				}
 				if (pEnumerator)
 				{
