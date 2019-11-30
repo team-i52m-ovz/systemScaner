@@ -25,7 +25,7 @@ namespace SystemRat
 
 		int init();
 		int queryData();
-		void generateFile(std::string fileName);
+		std::string generateJson();
 	private:
 		void getDataFromVariant(VARIANT variant, std::wstring& outData);
 

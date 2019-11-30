@@ -260,9 +260,7 @@ void WMIParser::getDataFromVariant(VARIANT variant, std::wstring& outData)
 }
 
 
-void WMIParser::generateFile(std::string fileName)
+std::string WMIParser::generateJson()
 {
-	std::ofstream out{ fileName };
-	out << m_jsonParser;
-	out.close();
+	return m_jsonParser.dump();
 }
