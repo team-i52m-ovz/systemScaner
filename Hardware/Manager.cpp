@@ -377,6 +377,10 @@ void Manager::exec()
 	{
 		std::string message;
 		inToken >> message;
+		if (message.empty())
+		{
+			break;
+		}
 		token.append(message);
 		if(!inToken.eof())
 		token.append(" ");

@@ -161,7 +161,7 @@ int WMIParser::queryData()
 				IWbemClassObject *pclsObj = NULL;
 				ULONG uReturn = 0;
 				int counter = 0;
-				m_jsonParser[it.first][iter.first] = {};
+				//m_jsonParser[it.first][iter.first] = {};
 				while (pEnumerator && counter < 100)
 				{
 					std::unordered_map<std::string, std::string> toFill;
@@ -187,8 +187,11 @@ int WMIParser::queryData()
 						//pEnumerator->Release();
 						toFill.emplace(item, ws2s(outData));
 					}
-					m_jsonParser[it.first][iter.first].push_back(json{toFill});
-					toFill.clear();
+					//m_jsonParser[it.first][iter.first].push_back(json{toFill});
+					for (auto iterat : toFill)
+					{
+						m_jsonParser[it.first][iter.first][iterat.first] = iterat.second;
+					}
 				}
 				if (pEnumerator)
 				{
